@@ -47,6 +47,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
+        
             ApplicationUserDTO creds = new ObjectMapper()
                     .readValue(req.getInputStream(), ApplicationUserDTO.class);
         	ApplicationUserEntity userEntity = this.repoUser.findByLogin(creds.getLogin());
@@ -82,6 +83,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .withArrayClaim("CLAIM_TOKEN",str)
                 .sign(HMAC512(SECRET.getBytes()));
+        res.addHeader("Access-Control-Expose-Headers", HEADER_STRING);
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
     }
     

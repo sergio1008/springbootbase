@@ -7,5 +7,5 @@ import com.netcund.app.entities.ApplicationUserEntity;
 
 @Repository
 public interface ApplicationUserRepository extends JpaRepository<ApplicationUserEntity, Long> {
-	ApplicationUserEntity findByName(String username);
+	ApplicationUserEntity findByLogin(String username);
 }

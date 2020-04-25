@@ -7,5 +7,5 @@ import com.netcund.app.dto.ApplicationUserDTO;
 @Service
 public interface ApplicationUserService {
 	
-    public void signUp( ApplicationUserDTO user);
+    void signUp( ApplicationUserDTO user);
 }

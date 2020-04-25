@@ -20,4 +20,9 @@ public class ApplicationUserController {
     public void signUp(@RequestBody ApplicationUserDTO user) {
     	this.service.signUp(user);
     }
+    
+    @PostMapping("/sign-in")
+    public void signIn(@RequestBody ApplicationUserDTO user) {
+    	this.service.signUp(user);
+    }    
 }

@@ -23,15 +23,26 @@ public class ApplicationUserEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
-	@SequenceGenerator(name = "user_generator", initialValue = 100)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column
-	private String name;
+	private String login;
 
 	@Column
 	private String password;
+	
+	@Column
+	private String name;
+	
+	@Column
+	private String lastName;
+	
+	@Column
+	private String email;
+	
+	@Column
+	private String phone;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLES", joinColumns = {
@@ -47,12 +58,12 @@ public class ApplicationUserEntity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getPassword() {
@@ -63,6 +74,38 @@ public class ApplicationUserEntity {
 		this.password = password;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public List<ApplicationRoleEntity> getRoles() {
 		return roles;
 	}
@@ -70,6 +113,12 @@ public class ApplicationUserEntity {
 	public void setRoles(List<ApplicationRoleEntity> roles) {
 		this.roles = roles;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
     
 	
 	

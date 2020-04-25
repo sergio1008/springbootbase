@@ -6,3 +6,7 @@ INSERT INTO role (id, description, name) VALUES (3, 'Operational role', 'OPERATI
 
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 2);
+
+
+--usuario admin : ADMIN
+-- contraseña admin: ADMIN_APP2020*
